@@ -1,0 +1,40 @@
+.header {
+    background-color: #282c34;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav li a:hover {
+    color: #61dafb;
+}
+
+.logoutBtn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    font-size: 0.9rem;
+    padding: 0;
+}
+
+.logoutBtn:hover {
+    color: #61dafb;
+}
