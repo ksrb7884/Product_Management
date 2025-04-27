@@ -19,18 +19,22 @@ function Login() {
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { payload } = await dispatch(loginUser(formData));
-      login(payload);
-      navigate("/products", { replace: true });
+      const response = await dispatch(loginUser(formData));
+      const { payload, error } = response;
+
+      if (payload) {
+        login(payload);
+        navigate("/products", { replace: true });
+      } else {
+        console.error("Login failed:", error?.message || "Invalid credentials");
+      }
     } catch (err) {
-      console.error("Login failed:", err.message);
+      console.error("Something went wrong:", err.message);
     }
   };
-
   return (
     <div className={styles.container}>
       <h2>Login</h2>

@@ -1,4 +1,20 @@
 {
-  "users": [],
-  "products": []
+  "users": [
+    {
+      "id": "0257",
+      "name": "Admin ",
+      "email": "admin@test.com",
+      "password": "admin@123"
+    }
+  ],
+  "products": [
+    {
+      "id": "f5ae",
+      "name": "iphone 10 ",
+      "category": "mobile",
+      "price": 5000,
+      "expiryDate": "2025-04-28",
+      "ownerId": "0257"
+    }
+  ]
 }
