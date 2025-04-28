@@ -102,32 +102,6 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
-export const removeExpiredProducts = createAsyncThunk(
-  "products/removeExpiredProducts",
-  async (_, { dispatch }) => {
-    const today = new Date().toISOString().split("T")[0];
-    const res = await axios.get(API_URL);
-
-    const expiredProducts = res.data.filter(
-      (product) => product.expiryDate && product.expiryDate < today
-    );
-
-    if (expiredProducts.length > 0) {
-      // Delete all expired products
-      await Promise.all(
-        expiredProducts.map((product) =>
-          axios.delete(`${API_URL}/${product.id}`)
-        )
-      );
-
-      // Return the IDs of expired products for state update
-      return expiredProducts.map((product) => product.id);
-    }
-
-    return [];
-  }
-);
-
 const productSlice = createSlice({
   name: "products",
   initialState: {
