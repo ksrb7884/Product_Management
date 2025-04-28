@@ -136,9 +136,6 @@ const productSlice = createSlice({
       })
       .addCase(deleteProduct.fulfilled, (state, action) => {
         state.items = state.items.filter((p) => p.id !== action.payload);
-      })
-      .addCase(removeExpiredProducts.fulfilled, (state, action) => {
-        state.items = state.items.filter((p) => !action.payload.includes(p.id));
       });
   },
 });
